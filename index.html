@@ -21,18 +21,18 @@
         <label for="first-name">
           First Name
           <span aria-hidden="true">*</span>
-          <span class="sr-only">required</span>
+          <!--span class="sr-only">required</span-->
         </label>
-        <input type="text" name="first-name" id="first-name" autocomplete="given-name">
+        <input type="text" name="first-name" id="first-name" autocomplete="given-name" required>
       </div>
 
       <div class="form-group">
         <label for="last-name">
           Last Name
           <span aria-hidden="true">*</span>
-          <span class="sr-only">required</span>
+          <!--span class="sr-only">required</span-->
         </label>
-        <input type="text" name="last-name" id="last-name" autocomplete="family-name">
+        <input type="text" name="last-name" id="last-name" autocomplete="family-name" required>
       </div>
 
     </div>
@@ -41,20 +41,20 @@
       <label for="email">
         Email Address
         <span aria-hidden="true">*</span>
-        <span class="sr-only">required</span>
+        <!--span class="sr-only">required</span-->
       </label>
-      <input type="email" name="email" id="email" autocomplete="email">
+      <input type="email" name="email" id="email" autocomplete="email" required>
     </div>
 
     <fieldset class="radio-group">
       <legend>
         Query Type
         <span aria-hidden="true">*</span>
-        <span class="sr-only">required</span>
+        <!--span class="sr-only">required</span-->
       </legend>
 
       <div class="radio-label-group">
-        <input type="radio" name="query-type" id="general-enquiry">
+        <input type="radio" name="query-type" id="general-enquiry" required>
         <label for="general-enquiry">General Enquiry</label>  
       </div>
 
@@ -68,17 +68,17 @@
       <label for="message">
         Message
         <span aria-hidden="true">*</span>
-        <span class="sr-only">required</span>
+        <!--span class="sr-only">required</span-->
       </label>
-      <textarea name="message" id="message"></textarea>
+      <textarea name="message" id="message" required></textarea>
     </div>
 
     <div class="checkbox-group">
-      <input type="checkbox" name="consent" id="consent">
+      <input type="checkbox" name="consent" id="consent" required>
       <label for="checkbox">
         I consent to being contacted by the team
         <span aria-hidden="true">*</span>
-        <span class="sr-only">required</span>
+        <!--span class="sr-only">required</span-->
       </label>
     </div>
 
