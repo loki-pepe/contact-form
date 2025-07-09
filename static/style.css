@@ -20,6 +20,10 @@ button {
 fieldset {
     border: none;
 }
+
+[hidden] {
+    display: none !important;
+}
   
 img, svg {
     display: block;
