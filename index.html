@@ -23,7 +23,16 @@
           <span aria-hidden="true">*</span>
           <!--span class="sr-only">required</span-->
         </label>
-        <input type="text" name="first-name" id="first-name" autocomplete="given-name" required>
+
+        <input
+          type="text"
+          name="first-name"
+          id="first-name"
+          autocomplete="given-name"
+          aria-describedby="first-name-error"
+          required
+        >
+        <p hidden class="error" id="first-name-error">This field is required</p>
       </div>
 
       <div class="form-group">
@@ -32,7 +41,16 @@
           <span aria-hidden="true">*</span>
           <!--span class="sr-only">required</span-->
         </label>
-        <input type="text" name="last-name" id="last-name" autocomplete="family-name" required>
+
+        <input
+          type="text"
+          name="last-name"
+          id="last-name"
+          autocomplete="family-name"
+          aria-describedby="last-name-error"
+          required
+        >
+        <p hidden class="error" id="last-name-error">This field is required</p>
       </div>
 
     </div>
@@ -43,10 +61,21 @@
         <span aria-hidden="true">*</span>
         <!--span class="sr-only">required</span-->
       </label>
-      <input type="email" name="email" id="email" autocomplete="email" required>
+
+      <input
+        type="email"
+        name="email"
+        id="email"
+        autocomplete="email"
+        aria-describedby="email-missing email-invalid"
+        required
+      >
+
+      <p hidden class="error" id="email-missing">This field is required</p>
+      <p hidden class="error" id="email-invalid">Please enter a valid email address</p>
     </div>
 
-    <fieldset class="radio-group">
+    <fieldset class="radio-group" aria-describedby="query-type-error">
       <legend>
         Query Type
         <span aria-hidden="true">*</span>
@@ -62,6 +91,8 @@
         <input type="radio" name="query-type" id="support-request">
         <label for="support-request">Support Request</label>
       </div>
+
+      <p hidden class="error" id="query-type-error">Please select a query type</p>
     </fieldset>
 
     <div class="form-group">
@@ -70,7 +101,9 @@
         <span aria-hidden="true">*</span>
         <!--span class="sr-only">required</span-->
       </label>
-      <textarea name="message" id="message" required></textarea>
+      <textarea name="message" id="message" aria-describedby="message-error" required></textarea>
+
+      <p hidden class="error" id="message-error">This field is required</p>
     </div>
 
     <div class="checkbox-group">
@@ -80,6 +113,8 @@
         <span aria-hidden="true">*</span>
         <!--span class="sr-only">required</span-->
       </label>
+
+      <p hidden class="error" id="consent-error">To submit this form, please consent to being contacted</p>
     </div>
 
     <button type="submit">Submit</button>
