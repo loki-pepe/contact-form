@@ -21,12 +21,14 @@ function getErrorMessage(element) {
 function handleElementError(element) {
     const errorMessage = getErrorMessage(element);
     errorMessage.removeAttribute("hidden");
-    
+
+    element.setAttribute("aria-invalid", "true");
     element.classList.add("invalid");
     element.addEventListener("input", hideError);
 
     function hideError() {
         errorMessage.setAttribute("hidden", "");
+        element.removeAttribute("aria-invalid");
         element.classList.remove("invalid");
         element.removeEventListener("input", hideError);
     }
