@@ -4,13 +4,17 @@ const inputs = form.querySelectorAll("input, textarea");
 
 document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
-    inputs.forEach(input => {
-        input.addEventListener("blur", () => {
-            handleValidity(input);
-        });
-    })
+    inputs.forEach(addBlurListener);
 });
 
+
+function addBlurListener(element) {
+    element.addEventListener("blur", e => {
+        if (!e.relatedTarget || e.target.name !== e.relatedTarget.name) {
+            handleValidity(element);
+        }
+    });
+}
 
 function getErrorMessage(element) {
     if (element.type !== "email") {
