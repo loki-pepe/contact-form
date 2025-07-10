@@ -29,16 +29,16 @@ function getErrorMessage(element) {
 }
 
 function handleElementError(element) {
-    const errorMessage = getErrorMessage(element);
-    errorMessage.classList.remove("hidden");
+    const errorElement = getErrorMessage(element);
+    errorElement.classList.remove("hidden");
 
-    element.setAttribute("aria-describedby", errorMessage.id);
+    element.setAttribute("aria-describedby", errorElement.id);
     element.setAttribute("aria-invalid", "true");
     element.classList.add("invalid");
     element.addEventListener("input", hideError);
 
     function hideError() {
-        errorMessage.classList.add("hidden");
+        errorElement.classList.add("hidden");
         element.removeAttribute("aria-describedby");
         element.removeAttribute("aria-invalid");
         element.classList.remove("invalid");
