@@ -1,8 +1,14 @@
 const form = document.querySelector("form");
+const inputs = form.querySelectorAll("input, textarea");
 
 
 document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
+    inputs.forEach(input => {
+        input.addEventListener("blur", () => {
+            handleValidity(input);
+        });
+    })
 });
 
 
@@ -34,10 +40,8 @@ function handleElementError(element) {
     }
 }
 
-function handleFormError(e) {
-    for (let element of form) {
-        if (!element.checkValidity()) handleElementError(element);
-    }
+function handleFormError() {
+    inputs.forEach(handleValidity)
 }
 
 function handleSubmit(e) {
@@ -48,6 +52,10 @@ function handleSubmit(e) {
 function handleSuccess() {
     form.reset();
     popSuccessMessage();
+}
+
+function handleValidity(element) {
+    if (!element.checkValidity()) handleElementError(element);
 }
 
 function popSuccessMessage() {
