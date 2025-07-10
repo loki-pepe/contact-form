@@ -28,7 +28,6 @@
           name="first-name"
           id="first-name"
           autocomplete="given-name"
-          aria-describedby="first-name-error"
           required
         >
         <p class="error hidden" id="first-name-error">This field is required</p>
@@ -45,7 +44,6 @@
           name="last-name"
           id="last-name"
           autocomplete="family-name"
-          aria-describedby="last-name-error"
           required
         >
         <p class="error hidden" id="last-name-error">This field is required</p>
@@ -64,7 +62,6 @@
         name="email"
         id="email"
         autocomplete="email"
-        aria-describedby="email-missing email-invalid"
         required
       >
 
@@ -72,7 +69,7 @@
       <p class="error hidden" id="email-invalid">Please enter a valid email address</p>
     </div>
 
-    <fieldset class="radio-group" aria-describedby="query-type-error">
+    <fieldset class="radio-group">
       <legend>
         Query Type
         <span aria-hidden="true">*</span>
@@ -96,7 +93,7 @@
         Message
         <span aria-hidden="true">*</span>
       </label>
-      <textarea name="message" id="message" aria-describedby="message-error" required></textarea>
+      <textarea name="message" id="message" required></textarea>
 
       <p class="error hidden" id="message-error">This field is required</p>
     </div>
