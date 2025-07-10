@@ -16,7 +16,7 @@ function addBlurListener(element) {
     });
 }
 
-function getErrorMessage(element) {
+function getErrorElement(element) {
     if (element.type !== "email") {
         return document.querySelector(`#${element.name}-error`);
     } else {
@@ -29,8 +29,8 @@ function getErrorMessage(element) {
 }
 
 function handleElementError(element) {
-    const errorElement = getErrorMessage(element);
-    errorElement.classList.remove("hidden");
+    const errorElement = getErrorElement(element);
+    errorElement.textContent = errorMessages[errorElement.id];
 
     element.setAttribute("aria-describedby", errorElement.id);
     element.setAttribute("aria-invalid", "true");
@@ -38,7 +38,7 @@ function handleElementError(element) {
     element.addEventListener("input", hideError);
 
     function hideError() {
-        errorElement.classList.add("hidden");
+        errorElement.textContent = "";
         element.removeAttribute("aria-describedby");
         element.removeAttribute("aria-invalid");
         element.classList.remove("invalid");
@@ -65,9 +65,19 @@ function handleValidity(element) {
 }
 
 function popSuccessMessage() {
-    const successMessage = document.querySelector("#success-message");
-    successMessage.classList.remove("hidden");
+    const successElement = document.querySelector("#success-message");
+    successElement.classList.remove("hidden");
     setTimeout(() => {
-        successMessage.classList.add("hidden");
+        successElement.classList.add("hidden");
     }, 5000);
+}
+
+const errorMessages = {
+    "first-name-error": "This field is required",
+    "last-name-error": "This field is required",
+    "email-missing": "This field is required",
+    "email-invalid": "Please enter a valid email address",
+    "query-type-error": "Please select a query type",
+    "message-error": "This field is required",
+    "consent-error": "To submit this form, please consent to being contacted"
 }
