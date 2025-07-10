@@ -21,10 +21,10 @@ fieldset {
     border: none;
 }
 
-[hidden] {
+.hidden {
     display: none !important;
 }
-  
+
 img, svg {
     display: block;
     max-width: 100%;
