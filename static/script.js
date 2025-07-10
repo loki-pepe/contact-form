@@ -47,5 +47,13 @@ function handleSubmit(e) {
 
 function handleSuccess() {
     form.reset();
-    alert("Good");
+    popSuccessMessage();
+}
+
+function popSuccessMessage() {
+    const successMessage = document.querySelector("#success-message");
+    successMessage.removeAttribute("hidden");
+    setTimeout(() => {
+        successMessage.setAttribute("hidden", "");
+    }, 5000);
 }
