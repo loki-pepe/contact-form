@@ -31,7 +31,7 @@
           aria-describedby="first-name-error"
           required
         >
-        <p hidden class="error" id="first-name-error">This field is required</p>
+        <p class="error hidden" id="first-name-error">This field is required.</p>
       </div>
 
       <div class="form-group">
@@ -48,7 +48,7 @@
           aria-describedby="last-name-error"
           required
         >
-        <p hidden class="error" id="last-name-error">This field is required</p>
+        <p class="error hidden" id="last-name-error">This field is required</p>
       </div>
 
     </div>
@@ -68,8 +68,8 @@
         required
       >
 
-      <p hidden class="error" id="email-missing">This field is required</p>
-      <p hidden class="error" id="email-invalid">Please enter a valid email address</p>
+      <p class="error hidden" id="email-missing">This field is required</p>
+      <p class="error hidden" id="email-invalid">Please enter a valid email address</p>
     </div>
 
     <fieldset class="radio-group" aria-describedby="query-type-error">
@@ -88,7 +88,7 @@
         <label for="support-request">Support Request</label>
       </div>
 
-      <p hidden class="error" id="query-type-error">Please select a query type</p>
+      <p class="error hidden" id="query-type-error">Please select a query type</p>
     </fieldset>
 
     <div class="form-group">
@@ -98,7 +98,7 @@
       </label>
       <textarea name="message" id="message" aria-describedby="message-error" required></textarea>
 
-      <p hidden class="error" id="message-error">This field is required</p>
+      <p class="error hidden" id="message-error">This field is required</p>
     </div>
 
     <div class="checkbox-group">
@@ -108,13 +108,13 @@
         <span aria-hidden="true">*</span>
       </label>
 
-      <p hidden class="error" id="consent-error">To submit this form, please consent to being contacted</p>
+      <p class="error hidden" id="consent-error">To submit this form, please consent to being contacted</p>
     </div>
 
     <button type="submit">Submit</button>
   </form>
 
-  <div hidden id="success-message">
+  <div id="success-message" class="hidden">
     <h2>Message Sent!</h2>
     <p>Thanks for completing the form. We'll be in touch soon!</p>
   </div>
