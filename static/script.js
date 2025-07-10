@@ -66,7 +66,8 @@ function handleValidity(element) {
 
 function popSuccessMessage() {
     const successElement = document.querySelector("#success-message");
-    successElement.classList.remove("hidden");
+    successElement.firstElementChild.textContent = successMessage.heading;
+    successElement.lastElementChild.textContent = successMessage.text;
     setTimeout(() => {
         successElement.classList.add("hidden");
     }, 5000);
@@ -80,4 +81,9 @@ const errorMessages = {
     "query-type-error": "Please select a query type",
     "message-error": "This field is required",
     "consent-error": "To submit this form, please consent to being contacted"
+}
+
+const successMessage = {
+    "heading": "Message Sent!",
+    "text": "Thanks for completing the form. We'll be in touch soon!"
 }
