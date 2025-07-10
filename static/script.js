@@ -30,14 +30,14 @@ function getErrorMessage(element) {
 
 function handleElementError(element) {
     const errorMessage = getErrorMessage(element);
-    errorMessage.removeAttribute("hidden");
+    errorMessage.classList.remove("hidden");
 
     element.setAttribute("aria-invalid", "true");
     element.classList.add("invalid");
     element.addEventListener("input", hideError);
 
     function hideError() {
-        errorMessage.setAttribute("hidden", "");
+        errorMessage.classList.add("hidden");
         element.removeAttribute("aria-invalid");
         element.classList.remove("invalid");
         element.removeEventListener("input", hideError);
@@ -64,8 +64,8 @@ function handleValidity(element) {
 
 function popSuccessMessage() {
     const successMessage = document.querySelector("#success-message");
-    successMessage.removeAttribute("hidden");
+    successMessage.classList.remove("hidden");
     setTimeout(() => {
-        successMessage.setAttribute("hidden", "");
+        successMessage.classList.add("hidden");
     }, 5000);
 }
