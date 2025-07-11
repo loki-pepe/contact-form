@@ -79,11 +79,17 @@ function handleValidity(element) {
 
 function popSuccessMessage() {
     const successElement = document.querySelector("#success-message");
-    successElement.firstElementChild.textContent = successMessage.heading;
-    successElement.lastElementChild.textContent = successMessage.text;
+
+    const heading = document.createElement("h2");
+    const text = document.createElement("p");
+
+    heading.textContent = successMessage.heading;
+    text.textContent = successMessage.text;
+    
+    successElement.append(heading, text);
+
     setTimeout(() => {
-        successElement.firstElementChild.textContent = "";
-        successElement.lastElementChild.textContent = "";
+        successElement.replaceChildren();
     }, 5000);
 }
 
