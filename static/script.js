@@ -9,7 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function addBlurListener(element) {
+    const label = document.querySelector(`label[for="${element.id}"]`);
+    let clickedLabel = "";
+
+    label.addEventListener("pointerdown", () => {
+        clickedLabel = label.htmlFor;
+        setTimeout(() => clickedLabel = "", 0);
+    });
+
     element.addEventListener("blur", e => {
+        if (clickedLabel == e.target.name) {
+            return;
+        }
+        
         if (!e.relatedTarget || e.target.name !== e.relatedTarget.name) {
             handleValidity(element);
         }
