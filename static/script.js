@@ -43,7 +43,11 @@ function getErrorElement(element) {
 
 function handleElementError(element) {
     const errorElement = getErrorElement(element);
-    errorElement.textContent = errorMessages[errorElement.id];
+
+    const errorContentEl = document.createElement("p");
+
+    errorContentEl.textContent = errorMessages[errorElement.id];
+    errorElement.replaceChildren(errorContentEl);
 
     element.setAttribute("aria-describedby", errorElement.id);
     element.setAttribute("aria-invalid", "true");
@@ -51,7 +55,8 @@ function handleElementError(element) {
     element.addEventListener("input", hideError);
 
     function hideError() {
-        errorElement.textContent = "";
+        errorElement.replaceChildren();
+
         element.removeAttribute("aria-describedby");
         element.removeAttribute("aria-invalid");
         element.classList.remove("invalid");
@@ -85,7 +90,7 @@ function popSuccessMessage() {
 
     heading.textContent = successMessage.heading;
     text.textContent = successMessage.text;
-    
+
     successElement.append(heading, text);
 
     setTimeout(() => {
