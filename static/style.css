@@ -40,6 +40,10 @@
 
     /* Borders */
     --input-border: 1px solid var(--input-border-color);
+    --radio-border: 2px solid var(--input-border-color);
+
+    /* Border radius */
+
 
     /* Font family */
     --karla: "Karla", Tahoma, sans-serif;
@@ -113,6 +117,31 @@ input.input-field.invalid, textarea.input-field.invalid {
     /* Rijesi ovo za tipkovnicu, focus-visible je kljuc */
     outline: none;
     border-color: var(--input-border-color-active);
+}
+
+input[type="radio"] {
+    position: relative;
+    appearance: none;
+    width: 20px; /* temp */
+    aspect-ratio: 1;
+    border: var(--radio-border);
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+    border-color: var(--input-border-color-active);
+    /*background: url("../assets/images/icon-radio-selected.svg") center/auto no-repeat;*/
+}
+input[type="radio"]:checked::after {
+    content: "";
+    width: 50%;
+    aspect-ratio: 1;
+    background-color: var(--input-border-color-active);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .radio-label-group:has(input:checked) {
