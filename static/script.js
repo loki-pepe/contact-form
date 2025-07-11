@@ -18,10 +18,11 @@ function addBlurListener(element) {
     });
 
     element.addEventListener("blur", e => {
+        // Escape blur event if label of blurred element is clicked
         if (clickedLabel == e.target.name) {
             return;
         }
-        
+
         if (!e.relatedTarget || e.target.name !== e.relatedTarget.name) {
             handleValidity(element);
         }
