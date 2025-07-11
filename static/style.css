@@ -78,7 +78,7 @@ button {
     color: var(--button-color);
 }
 
-button, .radio-label-group, input:not(input:focus), label, textarea:not(textarea:focus) {
+button, .radio-label-group, input:not(input:focus:not(input[type="radio"], input[type="checkbox"])), label, textarea:not(textarea:focus) {
     cursor: pointer;
 }
 
@@ -127,14 +127,9 @@ input[type="radio"] {
     border: var(--radio-border);
     border-radius: 50%;
 }
-
-input[type="radio"]:checked {
-    border-color: var(--input-border-color-active);
-    /*background: url("../assets/images/icon-radio-selected.svg") center/auto no-repeat;*/
-}
-input[type="radio"]:checked::after {
+input[type="radio"]::after {
     content: "";
-    width: 50%;
+    width: 0;
     aspect-ratio: 1;
     background-color: var(--input-border-color-active);
     border-radius: 50%;
@@ -142,6 +137,14 @@ input[type="radio"]:checked::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: width 0.2s;
+}
+
+input[type="radio"]:checked {
+    border-color: var(--input-border-color-active);
+}
+input[type="radio"]:checked::after {
+    width: 50%;
 }
 
 .radio-label-group:has(input:checked) {
