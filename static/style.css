@@ -47,6 +47,9 @@
 
     /* Font family */
     --karla: "Karla", Tahoma, sans-serif;
+
+    /* Icons */
+    --check-icon: url("../assets/images/icon-success-check.svg");
 }
 
 *, *::before, *::after {
@@ -171,7 +174,7 @@ input[type="radio"]:checked::after {
     display: block;
     width: 24px; /* temp */
     height: 24px; /* temp */
-    background: url("../assets/images/icon-success-check.svg") center/auto no-repeat;
+    background: var(--check-icon) center/auto no-repeat;
 }
 
 textarea {
