@@ -50,6 +50,9 @@
 
     /* Icons */
     --check-icon: url("../assets/images/icon-success-check.svg");
+
+    /* Transition time */
+    --radio-transition-time: 0.2s;
 }
 
 *, *::before, *::after {
@@ -140,7 +143,7 @@ input[type="radio"]::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: width 0.2s;
+    transition: width var(--radio-transition-time);
 }
 
 input[type="radio"]:checked {
@@ -152,6 +155,7 @@ input[type="radio"]:checked::after {
 
 .radio-label-group:has(input:checked) {
     background: var(--radio-checked-container-bg-color);
+    transition: background-color var(--radio-transition-time);
 }
 
 .sr-only {
