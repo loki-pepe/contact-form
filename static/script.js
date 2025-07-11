@@ -82,7 +82,8 @@ function popSuccessMessage() {
     successElement.firstElementChild.textContent = successMessage.heading;
     successElement.lastElementChild.textContent = successMessage.text;
     setTimeout(() => {
-        successElement.classList.add("hidden");
+        successElement.firstElementChild.textContent = "";
+        successElement.lastElementChild.textContent = "";
     }, 5000);
 }
 
