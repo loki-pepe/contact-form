@@ -1,6 +1,7 @@
 const form = document.querySelector("form");
 const inputs = form.querySelectorAll("input, textarea");
 
+// Treba dodat fokus radio buttonu ako se klikne parent div
 
 document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
