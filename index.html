@@ -23,7 +23,7 @@
           <span class="asterisk" aria-hidden="true">*</span>
         </label>
 
-        <input type="text" name="first-name" id="first-name" autocomplete="given-name" required>
+        <input class="input-field" type="text" name="first-name" id="first-name" autocomplete="given-name" required>
         <div class="error" aria-live="assertive" id="first-name-error"></div>
       </div>
 
@@ -33,7 +33,7 @@
           <span class="asterisk" aria-hidden="true">*</span>
         </label>
 
-        <input type="text" name="last-name" id="last-name" autocomplete="family-name" required>
+        <input class="input-field" type="text" name="last-name" id="last-name" autocomplete="family-name" required>
         <div class="error" aria-live="assertive" id="last-name-error"></div>
       </div>
 
@@ -45,7 +45,7 @@
         <span class="asterisk" aria-hidden="true">*</span>
       </label>
 
-      <input type="email" name="email" id="email" autocomplete="email" required>
+      <input class="input-field" type="email" name="email" id="email" autocomplete="email" required>
 
       <div class="error" aria-live="assertive" id="email-missing"></div>
       <div class="error" aria-live="assertive" id="email-invalid"></div>
@@ -57,12 +57,12 @@
         <span class="asterisk" aria-hidden="true">*</span>
       </legend>
 
-      <div class="radio-label-group">
+      <div class="radio-label-group input-field">
         <input type="radio" name="query-type" id="general-enquiry" required>
         <label for="general-enquiry">General Enquiry</label>  
       </div>
 
-      <div class="radio-label-group">
+      <div class="radio-label-group input-field">
         <input type="radio" name="query-type" id="support-request">
         <label for="support-request">Support Request</label>
       </div>
@@ -75,7 +75,7 @@
         Message
         <span class="asterisk" aria-hidden="true">*</span>
       </label>
-      <textarea name="message" id="message" required></textarea>
+      <textarea class="input-field" name="message" id="message" required></textarea>
 
       <div class="error" aria-live="assertive" id="message-error"></div>
     </div>
