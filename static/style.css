@@ -35,6 +35,8 @@
     --input-border-color-hover: var(--green-600);
     --input-border-color-invalid: var(--red);
     --radio-checked-container-bg-color: var(--green-200);
+    --success-message-bg-color: var(--grey-900);
+    --success-message-color: var(--white);
 
     /* Borders */
     --input-border: 1px solid var(--input-border-color);
@@ -125,6 +127,11 @@ input.input-field.invalid, textarea.input-field.invalid {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+#success-message {
+    background: var(--success-message-bg-color);
+    color: var(--success-message-color);
 }
 
 @media (hover: hover) {
