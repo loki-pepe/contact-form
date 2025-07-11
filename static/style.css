@@ -19,6 +19,26 @@
     --green-200: hsl(148 38% 91%);
     --red: hsl(0 66% 54%);
 
+    --screen-50: hsl(0 0% 0% / 0.5);
+
+    /* Color settings */
+    --asterisk-color: var(--green-600);
+    --bg-color: var(--green-200);
+    --button-bg-color: var(--green-600);
+    --button-bg-hover: linear-gradient(var(--screen-50), var(--screen-50)), var(--button-bg-color);
+    --button-color: var(--white);
+    --color: var(--grey-900);
+    --error-color: var(--red);
+    --form-bg-color: var(--white);
+    --input-border-color: var(--grey-500);
+    --input-border-color-active: var(--green-600);
+    --input-border-color-hover: var(--green-600);
+    --input-border-color-invalid: var(--red);
+    --radio-checked-container-bg-color: var(--green-200);
+
+    /* Borders */
+    --input-border: 1px solid var(--input-border-color);
+
     /* Font family */
     --karla: "Karla", Tahoma, sans-serif;
 }
@@ -32,19 +52,40 @@
     margin: 0;
 }
 
+.asterisk {
+    color: var(--asterisk-color);
+}
+
 body {
     min-height: 100vh;
     font-family: var(--karla);
+    background: var(--bg-color);
+    color: var(--color);
 }
 
 button {
     display: block;
     font-size: inherit;
     font-family: inherit;
+    border: none;
+    background: var(--button-bg-color);
+    color: var(--button-color);
+}
+
+button, .radio-label-group, input:not(input:focus), label, textarea:not(textarea:focus) {
+    cursor: pointer;
+}
+
+.error p {
+    color: var(--error-color);
 }
 
 fieldset {
     border: none;
+}
+
+form {
+    background: var(--form-bg-color);
 }
 
 img, svg {
@@ -52,10 +93,28 @@ img, svg {
     max-width: 100%;
 }
 
-input {
+input, textarea {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
+}
+
+input.input-field.invalid, textarea.input-field.invalid {
+    border-color: var(--input-border-color-invalid);
+}
+
+.input-field {
+    border: var(--input-border);
+    outline: none;
+}
+.input-field:focus {
+    /* Rijesi ovo za tipkovnicu, focus-visible je kljuc */
+    outline: none;
+    border-color: var(--input-border-color-active);
+}
+
+.radio-label-group:has(input:checked) {
+    background: var(--radio-checked-container-bg-color);
 }
 
 .sr-only {
@@ -66,4 +125,14 @@ input {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+@media (hover: hover) {
+    button:hover {
+        background: var(--button-bg-hover);
+    }
+
+    .input-field:hover {
+        border-color: var(--input-border-color-hover);
+    }
 }
