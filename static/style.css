@@ -18,6 +18,9 @@
     --green-600: hsl(169 82% 27%);
     --green-200: hsl(148 38% 91%);
     --red: hsl(0 66% 54%);
+
+    /* Font family */
+    --karla: "Karla", Tahoma, sans-serif;
 }
 
 *, *::before, *::after {
@@ -31,6 +34,7 @@
 
 body {
     min-height: 100vh;
+    font-family: var(--karla);
 }
 
 button {
