@@ -134,6 +134,14 @@ input.input-field.invalid, textarea.input-field.invalid {
     color: var(--success-message-color);
 }
 
+#success-message h2::before {
+    content: "";
+    display: block;
+    width: 24px; /* temp */
+    height: 24px; /* temp */
+    background: url("../assets/images/icon-success-check.svg") center/auto no-repeat;
+}
+
 @media (hover: hover) {
     button:hover {
         background: var(--button-bg-hover);
