@@ -103,7 +103,7 @@ function popSuccessMessage() {
     heading.textContent = successMessage.heading;
     text.textContent = successMessage.text;
 
-    successElement.append(heading, text);
+    successElement.replaceChildren(heading, text);
     successElement.style.opacity = "1";
 
     sleep(5000).then(() => {
