@@ -1,11 +1,12 @@
 const form = document.querySelector("form");
 const inputs = form.querySelectorAll("input, textarea");
+const radioLabelContainers = form.querySelectorAll(".radio-label-group");
 
-// Treba dodat fokus radio buttonu ako se klikne parent div
 
 document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
     inputs.forEach(addBlurListener);
+    radioLabelContainers.forEach(addClickListener);
 });
 
 
@@ -28,6 +29,13 @@ function addBlurListener(element) {
             handleValidity(element);
         }
     });
+}
+
+function addClickListener(target) {
+    target.addEventListener("click", () => {
+        const radioButton = target.querySelector("input[type='radio']")
+        radioButton.checked = "true";
+    })
 }
 
 function getErrorElement(element) {
