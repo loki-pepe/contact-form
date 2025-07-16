@@ -55,6 +55,9 @@
     --checkbox-checked-icon: url("../assets/images/icon-checkbox-check.svg");
     --checkbox-unchecked-icon: url("../assets/images/icon-checkbox-unchecked.svg");
 
+    /* Sizing */
+    --form-width: 46rem;
+
     /* Transition time */
     --radio-transition-time: 0.2s;
 }
@@ -77,6 +80,9 @@ body {
     font-family: var(--karla);
     background: var(--bg-color);
     color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
@@ -87,10 +93,16 @@ button {
     border-radius: var(--input-border-radius);
     background: var(--button-bg-color);
     color: var(--button-color);
+    width: 100%;
 }
 
 button, .radio-label-group, input:not(input:focus:not(input[type="radio"], input[type="checkbox"])), label, textarea:not(textarea:focus) {
     cursor: pointer;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
 }
 
 .error p {
@@ -104,6 +116,7 @@ fieldset {
 form {
     background: var(--form-bg-color);
     border-radius: var(--form-border-radius);
+    flex: 0 1 var(--form-width);
 }
 
 img, svg {
@@ -111,10 +124,11 @@ img, svg {
     max-width: 100%;
 }
 
-input, textarea {
+input[type="text"], input[type="email"], textarea {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
+    width: 100%;
 }
 
 input.input-field.invalid, textarea.input-field.invalid {
@@ -170,6 +184,21 @@ input[type="radio"]:checked::after {
     width: 50%;
 }
 
+label {
+    display: block;
+}
+
+.radio-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.radio-label-group {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
 .radio-label-group:has(input:checked) {
     background: var(--radio-checked-container-bg-color);
     transition: background-color var(--radio-transition-time);
@@ -186,6 +215,8 @@ input[type="radio"]:checked::after {
 }
 
 #success-message {
+    position: fixed;
+    top: 0;
     background: var(--success-message-bg-color);
     color: var(--success-message-color);
     border-radius: var(--message-border-radius);
