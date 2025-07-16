@@ -93,6 +93,9 @@ function handleValidity(element) {
 
 function popSuccessMessage() {
     const successElement = document.querySelector("#success-message");
+    const transitionTime = Number(
+        getComputedStyle(document.documentElement).getPropertyValue("--success-transition-time").replace("s", "")
+    ) * 1000;
 
     const heading = document.createElement("h2");
     const text = document.createElement("p");
@@ -101,10 +104,18 @@ function popSuccessMessage() {
     text.textContent = successMessage.text;
 
     successElement.append(heading, text);
+    successElement.style.opacity = "1";
 
-    setTimeout(() => {
-        successElement.replaceChildren();
-    }, 5000);
+    sleep(5000).then(() => {
+        successElement.style.opacity = "0";
+        setTimeout(() => {
+            successElement.replaceChildren();
+        }, transitionTime);
+    });
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 const errorMessages = {
