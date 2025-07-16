@@ -43,7 +43,9 @@
     --radio-border: 2px solid var(--input-border-color);
 
     /* Border radius */
-
+    --form-border-radius: 16px;
+    --input-border-radius: 8px;
+    --message-border-radius: 12px;
 
     /* Font family */
     --karla: "Karla", Tahoma, sans-serif;
@@ -82,6 +84,7 @@ button {
     font-size: inherit;
     font-family: inherit;
     border: none;
+    border-radius: var(--input-border-radius);
     background: var(--button-bg-color);
     color: var(--button-color);
 }
@@ -100,6 +103,7 @@ fieldset {
 
 form {
     background: var(--form-bg-color);
+    border-radius: var(--form-border-radius);
 }
 
 img, svg {
@@ -120,6 +124,7 @@ input.input-field.invalid, textarea.input-field.invalid {
 .input-field {
     border: var(--input-border);
     outline: none;
+    border-radius: var(--input-border-radius);
 }
 .input-field:focus {
     /* Rijesi ovo za tipkovnicu, focus-visible je kljuc */
@@ -183,6 +188,7 @@ input[type="radio"]:checked::after {
 #success-message {
     background: var(--success-message-bg-color);
     color: var(--success-message-color);
+    border-radius: var(--message-border-radius);
 }
 
 #success-message h2::before {
