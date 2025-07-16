@@ -60,6 +60,7 @@
 
     /* Transition time */
     --radio-transition-time: 0.2s;
+    --success-transition-time: 0.7s;
 }
 
 *, *::before, *::after {
@@ -225,6 +226,8 @@ label {
     background: var(--success-message-bg-color);
     color: var(--success-message-color);
     border-radius: var(--message-border-radius);
+    opacity: 0;
+    transition: opacity var(--success-transition-time);
 }
 
 #success-message h2::before {
