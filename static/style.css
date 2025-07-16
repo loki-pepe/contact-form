@@ -59,8 +59,8 @@
     --regular: 400;
     --bold: 700;
 
-    /* Line heights */
-    --body-line-height: 1.5;
+    /* Line heights*/
+    --body-line-height: auto;
     --h1-line-height: 1;
 
     /* Letter spacings */
@@ -71,6 +71,25 @@
     --check-icon: url("../assets/images/icon-success-check.svg");
     --checkbox-checked-icon: url("../assets/images/icon-checkbox-check.svg");
     --checkbox-unchecked-icon: url("../assets/images/icon-checkbox-unchecked.svg");
+
+    /* Spacings */
+    --body-padding-block: 32px;
+    --body-padding-inline: clamp(16px, 5.8524vw + -5.9466px, 39px);
+    --button-padding: 16px;
+    --form-control-column-gap: 16px;
+    --form-group-column-gap: 16px;
+    --form-group-row-gap: 16px;
+    --consent-marign-block: 40px;
+    --form-padding: clamp(24px, 4.0712vw + 8.7328px, 40px);
+    --h1-margin-block-end: 32px;
+    --input-field-padding-block: 12px;
+    --input-field-padding-inline: 24px;
+    --main-form-row-gap: 24px;
+    --radio-buttons-row-gap: 16px;
+    --success-heading-column-gap: 8px;
+    --success-marging: 24px;
+    --success-padding: 24px;
+    --success-row-gap: 16px;
 
     /* Sizing */
     --form-width: 46rem;
@@ -105,6 +124,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: var(--body-padding-block) var(--body-padding-inline);
 }
 
 button {
@@ -117,15 +137,28 @@ button {
     background: var(--button-bg-color);
     color: var(--button-color);
     width: 100%;
+    padding: var(--button-padding);
 }
 
-button, .radio-label-group, input:not(input:focus:not(input[type="radio"], input[type="checkbox"])), label, textarea:not(textarea:focus) {
+button, .radio-container, input:not(input:focus:not(input[type="radio"], input[type="checkbox"])), label, textarea:not(textarea:focus) {
     cursor: pointer;
 }
 
 .checkbox-container {
     display: flex;
     align-items: center;
+    column-gap: var(--form-control-column-gap);
+}
+
+#consent-group {
+    margin-block: var(--consent-marign-block);
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--form-group-row-gap);
+}
+
+.error {
+    display: none;
 }
 
 .error p {
@@ -140,6 +173,25 @@ form {
     background: var(--form-bg-color);
     border-radius: var(--form-border-radius);
     flex: 0 1 var(--form-width);
+    min-width: 320px;
+    padding: var(--form-padding);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--form-group-row-gap);
+}
+
+#full-name {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--form-group-column-gap);
+    row-gap: var(--main-form-row-gap);
+}
+
+#full-name > .form-group {
+    flex: 1 0 auto;
 }
 
 h1 {
@@ -147,15 +199,7 @@ h1 {
     font-weight: var(--bold);
     line-height: var(--h1-line-height);
     letter-spacing: var(--h1-letter-spacing);
-}
-
-h2 {
-    display: flex;
-    align-items: center;
-    font-size: inherit;
-    font-weight: var(--bold);
-    line-height: inherit;
-    letter-spacing: inherit;
+    margin-block-end: var(--h1-margin-block-end);
 }
 
 img, svg {
@@ -164,9 +208,7 @@ img, svg {
 }
 
 input[type="text"], input[type="email"], textarea {
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
+
     width: 100%;
 }
 
@@ -175,9 +217,13 @@ input.input-field.invalid, textarea.input-field.invalid {
 }
 
 .input-field {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
     border: var(--input-border);
     outline: none;
     border-radius: var(--input-border-radius);
+    padding: var(--input-field-padding-block) var(--input-field-padding-inline);
 }
 .input-field:focus {
     /* Rijesi ovo za tipkovnicu, focus-visible je kljuc */
@@ -190,6 +236,7 @@ input[type="checkbox"] {
     width: 18px; /* temp */
     aspect-ratio: 1;
     background: var(--checkbox-unchecked-icon) center/auto no-repeat;
+    flex: 0 0 auto;
 }
 input[type="checkbox"]:checked {
     background-image: var(--checkbox-checked-icon);
@@ -229,6 +276,12 @@ label, legend {
     font-size: var(--body-s);
 }
 
+#main-form-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--main-form-row-gap);
+}
+
 p {
     font-size: var(--body-s);
 }
@@ -236,20 +289,24 @@ p {
 .radio-buttons-container {
     display: flex;
     flex-wrap: wrap;
+    column-gap: var(--form-group-column-gap);
+    row-gap: var(--radio-buttons-row-gap);
+    margin-block: var(--form-group-row-gap);
 }
 
-.radio-label-group {
+.radio-container {
     display: flex;
     align-items: center;
     flex: 1 0 auto;
+    column-gap: var(--form-control-column-gap);
 }
 
-.radio-label-group:has(input:checked) {
+.radio-container:has(input:checked) {
     background: var(--radio-checked-container-bg-color);
     transition: background-color var(--radio-transition-time);
 }
 
-.radio-label-group label {
+.radio-container label {
     pointer-events: none;
     font-size: var(--body-m);
 }
@@ -267,11 +324,25 @@ p {
 #success-message {
     position: fixed;
     top: 0;
+    margin: var(--success-marging);
+    padding: var(--success-padding);
+    min-width: 300px;
     background: var(--success-message-bg-color);
     color: var(--success-message-color);
     border-radius: var(--message-border-radius);
     opacity: 0;
     transition: opacity var(--success-transition-time);
+}
+
+#success-message h2 {
+    display: flex;
+    align-items: center;
+    column-gap: var(--success-heading-column-gap);
+    font-size: inherit;
+    font-weight: var(--bold);
+    line-height: inherit;
+    letter-spacing: inherit;
+    margin-block-end: var(--success-row-gap);
 }
 
 #success-message h2::before {
