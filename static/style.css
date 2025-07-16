@@ -50,6 +50,8 @@
 
     /* Icons */
     --check-icon: url("../assets/images/icon-success-check.svg");
+    --checkbox-checked-icon: url("../assets/images/icon-checkbox-check.svg");
+    --checkbox-unchecked-icon: url("../assets/images/icon-checkbox-unchecked.svg");
 
     /* Transition time */
     --radio-transition-time: 0.2s;
@@ -123,6 +125,16 @@ input.input-field.invalid, textarea.input-field.invalid {
     /* Rijesi ovo za tipkovnicu, focus-visible je kljuc */
     outline: none;
     border-color: var(--input-border-color-active);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 18px; /* temp */
+    aspect-ratio: 1;
+    background: var(--checkbox-unchecked-icon) center/auto no-repeat;
+}
+input[type="checkbox"]:checked {
+    background-image: var(--checkbox-checked-icon);
 }
 
 input[type="radio"] {
