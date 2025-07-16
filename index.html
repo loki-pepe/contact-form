@@ -56,15 +56,17 @@
         Query Type
         <span class="asterisk" aria-hidden="true">*</span>
       </legend>
+      
+      <div class="radio-buttons-container">
+        <div class="radio-label-group input-field">
+          <input type="radio" name="query-type" id="general-enquiry" required>
+          <label for="general-enquiry">General Enquiry</label>  
+        </div>
 
-      <div class="radio-label-group input-field">
-        <input type="radio" name="query-type" id="general-enquiry" required>
-        <label for="general-enquiry">General Enquiry</label>  
-      </div>
-
-      <div class="radio-label-group input-field">
-        <input type="radio" name="query-type" id="support-request">
-        <label for="support-request">Support Request</label>
+        <div class="radio-label-group input-field">
+          <input type="radio" name="query-type" id="support-request">
+          <label for="support-request">Support Request</label>
+        </div>
       </div>
 
       <div class="error" aria-live="assertive" id="query-type-error"></div>
@@ -81,11 +83,13 @@
     </div>
 
     <div class="checkbox-group">
-      <input type="checkbox" name="consent" id="consent" required>
-      <label for="consent">
-        I consent to being contacted by the team
-        <span class="asterisk" aria-hidden="true">*</span>
-      </label>
+      <div class="checkbox-container">
+        <input type="checkbox" name="consent" id="consent" required>
+        <label for="consent">
+          I consent to being contacted by the team
+          <span class="asterisk" aria-hidden="true">*</span>
+        </label>
+      </div>
 
       <p class="error" aria-live="assertive" id="consent-error"></p>
     </div>
