@@ -157,6 +157,7 @@ input[type="checkbox"]:checked {
 }
 
 input[type="radio"] {
+    pointer-events: none;
     position: relative;
     appearance: none;
     width: 20px; /* temp */
@@ -202,6 +203,10 @@ label {
 .radio-label-group:has(input:checked) {
     background: var(--radio-checked-container-bg-color);
     transition: background-color var(--radio-transition-time);
+}
+
+.radio-label-group label {
+    pointer-events: none;
 }
 
 .sr-only {
