@@ -157,8 +157,8 @@ button, .radio-container, input:not(input:focus:not(input[type="radio"], input[t
     row-gap: var(--form-group-row-gap);
 }
 
-.error {
-    display: none;
+.error:empty {
+    position: absolute;
 }
 
 .error p {
