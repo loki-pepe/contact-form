@@ -93,7 +93,10 @@
     --success-row-gap: 8px;
 
     /* Sizing */
+    --checkbox-size: 1.125rem;
     --form-width: 46rem;
+    --radio-button-size: 1.25rem;
+    --success-icon-size: 1.5rem;
 
     /* Transition time */
     --radio-transition-time: 0.2s;
@@ -239,9 +242,9 @@ input.input-field.invalid, textarea.input-field.invalid {
 
 input[type="checkbox"] {
     appearance: none;
-    width: 18px; /* temp */
+    width: var(--checkbox-size);
     aspect-ratio: 1;
-    background: var(--checkbox-unchecked-icon) center/auto no-repeat;
+    background: var(--checkbox-unchecked-icon) center/cover no-repeat;
     flex: 0 0 auto;
 }
 input[type="checkbox"]:checked {
@@ -252,7 +255,7 @@ input[type="radio"] {
     pointer-events: none;
     position: relative;
     appearance: none;
-    width: 20px; /* temp */
+    width: var(--radio-button-size);
     aspect-ratio: 1;
     border: var(--radio-border);
     border-radius: 50%;
@@ -267,7 +270,6 @@ input[type="radio"]::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: width var(--radio-transition-time);
 }
 
 input[type="radio"]:checked {
@@ -309,7 +311,6 @@ p {
 
 .radio-container:has(input:checked) {
     background: var(--radio-checked-container-bg-color);
-    transition: background-color var(--radio-transition-time);
 }
 
 .radio-container label {
@@ -337,7 +338,6 @@ p {
     color: var(--success-message-color);
     border-radius: var(--message-border-radius);
     opacity: 0;
-    transition: opacity var(--success-transition-time);
 }
 
 #success-message h2 {
@@ -354,8 +354,8 @@ p {
 #success-message h2::before {
     content: "";
     display: block;
-    width: 24px; /* temp */
-    height: 24px; /* temp */
+    width: var(--success-icon-size);
+    aspect-ratio: 1;
     background: var(--check-icon) center/auto no-repeat;
 }
 
@@ -370,5 +370,19 @@ textarea {
 
     .input-field:hover {
         border-color: var(--input-border-color-hover);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    input[type="radio"]::after {
+        transition: width var(--radio-transition-time);
+    }
+
+    .radio-container:has(input:checked) {
+        transition: background-color var(--radio-transition-time);
+    }
+
+    #success-message {
+        transition: opacity var(--success-transition-time);
     }
 }
