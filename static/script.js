@@ -1,20 +1,27 @@
 const form = document.querySelector("form");
 const inputs = form.querySelectorAll("input, textarea");
 const radioContainers = form.querySelectorAll(".radio-container");
+const textareas = form.querySelectorAll("textarea");
 
 
 document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
 
     // Escape blur event when corresponding label is clicked
-    inputs.forEach(addBlurListener);
+    inputs.forEach(escapeBlur);
 
     // Make whole radio button containers clickable
-    radioContainers.forEach(addClickListener);
+    radioContainers.forEach(makeClickable);
+
+    // Set row number of textarea
+    textareas.forEach(setTextareaRows);
+    window.addEventListener("resize", () => {
+        textareas.forEach(setTextareaRows);
+    });
 });
 
 
-function addBlurListener(element) {
+function escapeBlur(element) {
     const label = document.querySelector(`label[for="${element.id}"]`);
     let clickedLabel = "";
 
@@ -34,7 +41,7 @@ function addBlurListener(element) {
     });
 }
 
-function addClickListener(target) {
+function makeClickable(target) {
     target.addEventListener("click", () => {
         const radioButton = target.querySelector("input[type='radio']")
         radioButton.checked = "true";
@@ -117,6 +124,19 @@ function popSuccessMessage() {
             successElement.replaceChildren();
         }, transitionTime);
     });
+}
+
+function setTextareaRows(textarea) {
+    const textareaStyle = getComputedStyle(textarea);
+    const paddingLeft = parseFloat(textareaStyle.getPropertyValue("padding-left"));
+    const paddingRight = parseFloat(textareaStyle.getPropertyValue("padding-right"));
+
+    const width = textarea.clientWidth - paddingLeft - paddingRight
+    let rows = Math.round(2000 / width);
+    rows = Math.min(rows, 10);
+    rows = Math.max(rows, 3);
+
+    textarea.rows = rows;
 }
 
 function sleep(ms) {
