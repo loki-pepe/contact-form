@@ -78,7 +78,7 @@
     --button-padding: 16px;
     --form-control-column-gap: 16px;
     --form-group-column-gap: 16px;
-    --form-group-row-gap: 16px;
+    --form-group-row-gap: 8px;
     --consent-marign-block: 40px;
     --form-padding: clamp(24px, 4.0712vw + 8.7328px, 40px);
     --h1-margin-block-end: 32px;
