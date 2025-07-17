@@ -235,9 +235,10 @@ input.input-field.invalid, textarea.input-field.invalid {
     padding: var(--input-field-padding-block) var(--input-field-padding-inline);
 }
 .input-field:focus {
-    /* Rijesi ovo za tipkovnicu, focus-visible je kljuc */
-    outline: none;
     border-color: var(--input-border-color-active);
+}
+:root.user-tabbing .input-field:focus, :root.user-tabbing .input-field:has(input[type="radio"]:focus) {
+    outline: auto;
 }
 
 input[type="checkbox"] {
@@ -259,6 +260,7 @@ input[type="radio"] {
     aspect-ratio: 1;
     border: var(--radio-border);
     border-radius: 50%;
+    outline: none;
 }
 input[type="radio"]::after {
     content: "";

@@ -7,6 +7,9 @@ const textareas = form.querySelectorAll("textarea");
 document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
 
+    // Set tabbing class on root element
+    toggleTabbingClass();
+
     // Validate inputs on blur event
     inputs.forEach(validateOnBlur);
 
@@ -143,6 +146,21 @@ function setTextareaRows(textarea) {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+function toggleTabbingClass() {
+    const tabbingClass = "user-tabbing";
+
+    document.addEventListener("keydown", e => {
+        if (e.key == "Tab") {
+            document.documentElement.classList.add(tabbingClass);
+        }
+    });
+
+    document.addEventListener("mousedown", e => {
+        document.documentElement.classList.remove(tabbingClass);
+    });
+}
+
 
 const errorMessages = {
     "first-name-error": "This field is required",
