@@ -7,8 +7,8 @@ const textareas = form.querySelectorAll("textarea");
 document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
 
-    // Escape blur event when corresponding label is clicked
-    inputs.forEach(escapeBlur);
+    // Validate inputs on blur event
+    inputs.forEach(validateOnBlur);
 
     // Make whole radio button containers clickable
     radioContainers.forEach(makeClickable);
@@ -21,10 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function escapeBlur(element) {
+function validateOnBlur(element) {
     const label = document.querySelector(`label[for="${element.id}"]`);
     let clickedLabel = "";
 
+    // Escape blur event when corresponding label is clicked
     label.addEventListener("pointerdown", () => {
         clickedLabel = label.htmlFor;
         setTimeout(() => clickedLabel = "", 0);
