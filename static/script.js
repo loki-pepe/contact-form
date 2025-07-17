@@ -61,7 +61,6 @@ function handleElementError(element) {
 
     errorContentEl.textContent = errorMessages[errorElement.id];
     errorElement.replaceChildren(errorContentEl);
-    errorElement.style.display = "block";
 
     element.setAttribute("aria-describedby", errorElement.id);
     element.setAttribute("aria-invalid", "true");
@@ -69,7 +68,6 @@ function handleElementError(element) {
     element.addEventListener("input", hideError);
 
     function hideError() {
-        errorElement.style.display = "none";
         errorElement.replaceChildren();
 
         element.removeAttribute("aria-describedby");
