@@ -76,6 +76,7 @@
     --body-padding-block: 32px;
     --body-padding-inline: clamp(16px, 5.8524vw + -5.9466px, 39px);
     --button-padding: 16px;
+    --fieldset-row-gap: 16px;
     --form-control-column-gap: 16px;
     --form-group-column-gap: 16px;
     --form-group-row-gap: 8px;
@@ -164,6 +165,10 @@ button, .radio-container, input:not(input:focus:not(input[type="radio"], input[t
 
 .error p {
     color: var(--error-color);
+}
+
+.error#query-type-error {
+    margin-block-start: var(--fieldset-row-gap);
 }
 
 fieldset {
@@ -292,7 +297,7 @@ p {
     flex-wrap: wrap;
     column-gap: var(--form-group-column-gap);
     row-gap: var(--radio-buttons-row-gap);
-    margin-block: var(--form-group-row-gap);
+    margin-block-start: var(--fieldset-row-gap);
 }
 
 .radio-container {
