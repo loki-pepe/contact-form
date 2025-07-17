@@ -60,7 +60,7 @@
     --bold: 700;
 
     /* Line heights*/
-    --body-line-height: auto;
+    --body-line-height: 1.5;
     --h1-line-height: 1;
 
     /* Letter spacings */
@@ -132,6 +132,7 @@ button {
     font-size: inherit;
     font-family: inherit;
     font-weight: var(--bold);
+    line-height: inherit;
     border: none;
     border-radius: var(--input-border-radius);
     background: var(--button-bg-color);
