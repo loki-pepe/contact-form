@@ -99,6 +99,7 @@ function handleValidity(element) {
 
 function popSuccessMessage() {
     const successElement = document.querySelector("#success-message");
+    const showTime = 6000;
     const transitionTime = Number(
         getComputedStyle(document.documentElement).getPropertyValue("--success-transition-time").replace("s", "")
     ) * 1000;
@@ -112,7 +113,7 @@ function popSuccessMessage() {
     successElement.replaceChildren(heading, text);
     successElement.style.opacity = "1";
 
-    sleep(5000).then(() => {
+    sleep(showTime).then(() => {
         successElement.style.opacity = "0";
         setTimeout(() => {
             successElement.replaceChildren();
