@@ -5,7 +5,11 @@ const radioContainers = form.querySelectorAll(".radio-container");
 
 document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", handleSubmit);
+
+    // Escape blur event when corresponding label is clicked
     inputs.forEach(addBlurListener);
+
+    // Make whole radio button containers clickable
     radioContainers.forEach(addClickListener);
 });
 
@@ -20,7 +24,6 @@ function addBlurListener(element) {
     });
 
     element.addEventListener("blur", e => {
-        // Escape blur event if label of blurred element is clicked
         if (clickedLabel == e.target.name) {
             return;
         }
@@ -35,6 +38,7 @@ function addClickListener(target) {
     target.addEventListener("click", () => {
         const radioButton = target.querySelector("input[type='radio']")
         radioButton.checked = "true";
+        radioButton.dispatchEvent(new Event("input"));
     })
 }
 
