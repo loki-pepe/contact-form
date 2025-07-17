@@ -214,7 +214,7 @@ img, svg {
 }
 
 input[type="text"], input[type="email"], textarea {
-
+    line-height: inherit;
     width: 100%;
 }
 
