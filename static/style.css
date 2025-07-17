@@ -73,13 +73,13 @@
     --checkbox-unchecked-icon: url("../assets/images/icon-checkbox-unchecked.svg");
 
     /* Spacings */
-    --body-padding-block: 32px;
-    --body-padding-inline: clamp(16px, 5.8524vw + -5.9466px, 39px);
     --button-padding: 16px;
     --fieldset-row-gap: 16px;
     --form-control-column-gap: 16px;
     --form-group-column-gap: 16px;
     --form-group-row-gap: 8px;
+    --form-margin-block: 32px;
+    --form-margin-inline: clamp(16px, 5.8524vw + -5.9466px, 39px);
     --consent-marign-block: 40px;
     --form-padding: clamp(24px, 4.0712vw + 8.7328px, 40px);
     --h1-margin-block-end: 32px;
@@ -90,7 +90,7 @@
     --success-heading-column-gap: 8px;
     --success-marging: 24px;
     --success-padding: 24px;
-    --success-row-gap: 16px;
+    --success-row-gap: 8px;
 
     /* Sizing */
     --form-width: 46rem;
@@ -125,7 +125,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--body-padding-block) var(--body-padding-inline);
 }
 
 button {
@@ -181,6 +180,7 @@ form {
     flex: 0 1 var(--form-width);
     min-width: 320px;
     padding: var(--form-padding);
+    margin: var(--form-margin-block) var(--form-margin-inline);
 }
 
 .form-group {
