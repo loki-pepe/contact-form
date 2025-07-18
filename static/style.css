@@ -320,16 +320,6 @@ p {
     font-size: var(--body-m);
 }
 
-.sr-only {
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 #success-message {
     position: fixed;
     top: 0;
