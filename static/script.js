@@ -35,7 +35,7 @@ function validateOnBlur(element) {
     });
 
     element.addEventListener("blur", e => {
-        if (clickedLabel == e.target.name) {
+        if (clickedLabel === e.target.name) {
             return;
         }
 
@@ -151,12 +151,12 @@ function toggleTabbingClass() {
     const tabbingClass = "user-tabbing";
 
     document.addEventListener("keydown", e => {
-        if (e.key == "Tab") {
+        if (e.key === "Tab") {
             document.documentElement.classList.add(tabbingClass);
         }
     });
 
-    document.addEventListener("mousedown", e => {
+    document.addEventListener("mousedown", () => {
         document.documentElement.classList.remove(tabbingClass);
     });
 }
