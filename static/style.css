@@ -85,6 +85,7 @@
     --h1-margin-block-end: 32px;
     --input-field-padding-block: 11px;
     --input-field-padding-inline: 23px;
+    --label-column-gap: 8px;
     --main-form-row-gap: 24px;
     --radio-buttons-row-gap: 16px;
     --success-heading-column-gap: 8px;
@@ -282,8 +283,13 @@ input[type="radio"]:checked::after {
 }
 
 label, legend {
-    display: block;
+    display: flex;
     font-size: var(--body-s);
+    column-gap: var(--label-column-gap);
+}
+
+label[for="consent"] {
+    display: block;
 }
 
 #main-form-section {
