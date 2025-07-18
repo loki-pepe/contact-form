@@ -327,7 +327,7 @@ p {
 }
 
 #success-message {
-    position: absolute;
+    position: fixed;
     top: 0;
     margin: var(--success-marging);
     padding: var(--success-padding);
